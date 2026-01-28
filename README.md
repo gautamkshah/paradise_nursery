@@ -2,21 +2,20 @@
 
 A modern, full-stack e-commerce platform for a premium plant nursery. Built with performance, aesthetics, and scalability in mind.
 
-## 🚀 Features
+### ✨ Key Features
 
-### for Customers
+**For Customers**
 -   **Immersive UI**: Beautiful, animated interface with "Category-First" browsing.
--   **Dynamic Animations**: Custom leaf animations that react to cursor movement ("wind effect").
+-   **Dynamic Animations**: Custom leaf animations that react to cursor movement.
 -   **Smart Filtering**: Filter products by category or search instantly.
 -   **Cart System**: Persistent shopping cart with real-time updates.
 -   **User Accounts**: Secure signup/login with profile management.
 
-### for Admins
--   **Mobile-First Dashboard**: Manage your store from your phone.
--   **Easy Image Uploads**: Integrated **Cloudinary** support for direct camera/gallery uploads.
--   **Product Management**: Create, edit, and delete products with rich details.
--   **Category Management**: Organize plants into custom categories with images and descriptions.
--   **Order Tracking**: View and manage customer orders (Pending).
+**For Admins**
+-   **Mobile-First Dashboard**: Manage your store from any device.
+-   **Easy Image Uploads**: Integrated **Cloudinary** (Camera/Gallery support).
+-   **Product & Category Management**: Full CRUD capabilities.
+-   **Order Tracking**: View and manage customer orders.
 
 ## 🛠️ Tech Stack
 
@@ -62,36 +61,50 @@ A modern, full-stack e-commerce platform for a premium plant nursery. Built with
 
 ### 1. Backend Setup
 
+**Install Dependencies**
 \`\`\`bash
 cd server
 npm install
+\`\`\`
 
-# Configure Environment
-# Create .env file with:
-# DATABASE_URL="postgresql://user:password@localhost:5432/paradise_db"
-# JWT_SECRET="your_super_secret_key"
+**Configure Environment**
+Create a \`.env\` file in the \`server/\` directory:
+\`\`\`env
+# Database Connection
+DATABASE_URL="postgresql://user:password@localhost:5432/paradise_db"
 
+# Security
+JWT_SECRET="your_super_secret_key"
+\`\`\`
+
+**Start Server**
+\`\`\`bash
 # Initialize Database
 npx prisma generate
 npx prisma db push
-npx prisma db seed  # Optional: Loads initial data
 
-# Start Server
+# Run Service
 npm run dev
 \`\`\`
 
 ### 2. Frontend Setup
 
+**Install Dependencies**
 \`\`\`bash
 cd client
 npm install
+\`\`\`
 
-# Configure Environment
-# Create .env.local file with:
-# NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="your_cloud_name"
-# NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET="your_unsigned_preset"
+**Configure Environment**
+Create a \`.env.local\` file in the \`client/\` directory:
+\`\`\`env
+# Cloudinary Keys (Get these from your Dashboard)
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="your_cloud_name"
+NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET="your_unsigned_preset"
+\`\`\`
 
-# Start Client
+**Start Client**
+\`\`\`bash
 npm run dev
 \`\`\`
 
@@ -102,16 +115,18 @@ To enable the camera/gallery upload feature in the Admin panel:
 3.  Add a new preset with **Mode: Unsigned**.
 4.  Add the `Cloud Name` and `Preset Name` to your `client/.env.local`.
 
-## 📸 Screenshots
+## 📸 Website Preview
 
 \`\`\`carousel
 ![Home Page](assets/ui_home.png)
 <!-- slide -->
 ![Curated Collections](assets/ui_collections.png)
 <!-- slide -->
+![Admin Dashboard](assets/ui_admin.png)
+<!-- slide -->
 ![Setup: Project Structure](assets/setup_structure.png)
 <!-- slide -->
-![Setup: Environment Config](assets/setup_db.png)
+![Setup: Database Config](assets/setup_db.png)
 <!-- slide -->
 ![Setup: Cloudinary Config](assets/setup_cloudinary.png)
 \`\`\`
