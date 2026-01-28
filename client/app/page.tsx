@@ -20,9 +20,9 @@ export default function Home() {
       <Navbar />
       <CartDrawer />
       <Hero />
-      <ServicesSection />
       <AboutSection />
       <ProductSection />
+      <ServicesSection />
 
       {/* Simple Footer */}
       <Footer />

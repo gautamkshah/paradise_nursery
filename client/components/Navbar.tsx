@@ -37,8 +37,8 @@ const Navbar = () => {
 
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 cursor-pointer">
-                    <div className="w-10 h-10 bg-green-600 rounded-tr-[15px] rounded-bl-[15px] flex items-center justify-center shadow-lg">
-                        <Leaf className="w-5 h-5 text-white" fill="currentColor" />
+                    <div className="w-12 h-12 relative rounded-xl overflow-hidden shadow-lg border-2 border-green-100">
+                        <img src="/logo.jpg" alt="Paradise Nursery" className="w-full h-full object-cover" />
                     </div>
                     <span className={`text-2xl font-serif font-bold tracking-tight transition-colors ${isScrolled ? 'text-green-950' : 'text-green-900'}`}>
                         Paradise

@@ -60,7 +60,14 @@ const AboutSection = () => {
 
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white/20">
                         <span className="text-6xl">🌱</span>
-                        <p className="mt-4 font-serif text-2xl">Visual placeholder</p>
+                        <div className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl group">
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                            <img
+                                src="https://images.unsplash.com/photo-1545241047-6083a3684587?q=80&w=1200&auto=format&fit=crop"
+                                alt="Lush Green Paradise"
+                                className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+                            />
+                        </div>
                     </div>
                 </motion.div>
 
