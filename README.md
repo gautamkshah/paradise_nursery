@@ -102,5 +102,19 @@ To enable the camera/gallery upload feature in the Admin panel:
 3.  Add a new preset with **Mode: Unsigned**.
 4.  Add the `Cloud Name` and `Preset Name` to your `client/.env.local`.
 
+## 📸 Screenshots
+
+\`\`\`carousel
+![Home Page](assets/ui_home.png)
+<!-- slide -->
+![Curated Collections](assets/ui_collections.png)
+<!-- slide -->
+![Setup: Project Structure](assets/setup_structure.png)
+<!-- slide -->
+![Setup: Environment Config](assets/setup_db.png)
+<!-- slide -->
+![Setup: Cloudinary Config](assets/setup_cloudinary.png)
+\`\`\`
+
 ---
 Developed by [Gautam K Shah](https://github.com/gautamkshah)
