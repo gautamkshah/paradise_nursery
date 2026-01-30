@@ -246,7 +246,7 @@ export default function ProfilePage() {
                                         </div>
                                         <div>
                                             <p className="text-xs text-stone-500 uppercase tracking-wider font-bold">Total</p>
-                                            <p className="font-bold text-green-800">${Number(order.totalAmount).toFixed(2)}</p>
+                                            <p className="font-bold text-green-800">₹{Number(order.totalAmount).toFixed(2)}</p>
                                         </div>
                                         <div>
                                             <span className={`px-3 py-1 rounded-full text-xs font-bold
@@ -269,7 +269,7 @@ export default function ProfilePage() {
                                                     </div>
                                                     <div className="flex-1">
                                                         <p className="font-medium text-stone-900">{item.product.name}</p>
-                                                        <p className="text-sm text-stone-500">Qty: {item.qty} × ${item.price}</p>
+                                                        <p className="text-sm text-stone-500">Qty: {item.qty} × ₹{item.price}</p>
                                                     </div>
                                                 </div>
                                             ))}

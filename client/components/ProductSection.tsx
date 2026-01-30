@@ -217,7 +217,7 @@ const ProductSection = () => {
 
                                             {/* Price Tag */}
                                             <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-md px-4 py-1.5 rounded-full text-green-900 font-bold shadow-sm z-20">
-                                                ${Number(product.price).toFixed(0)}
+                                                ₹{Number(product.price).toFixed(0)}
                                             </div>
                                         </div>
 

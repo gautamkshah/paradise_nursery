@@ -113,7 +113,7 @@ export default function AdminProductsPage() {
                                     </span>
                                 </td>
                                 <td className="px-6 py-4 text-stone-900 font-medium">
-                                    ${product.price}
+                                    ₹{product.price}
                                 </td>
                                 <td className="px-6 py-4 text-right">
                                     <div className="flex items-center justify-end gap-2">

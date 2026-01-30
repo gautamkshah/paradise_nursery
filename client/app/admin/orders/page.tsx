@@ -99,7 +99,7 @@ export default function AdminOrdersPage() {
                                     {new Date(order.createdAt).toLocaleDateString()}
                                 </td>
                                 <td className="px-6 py-4 font-bold text-green-800 align-top">
-                                    ${Number(order.totalAmount).toFixed(2)}
+                                    ₹{Number(order.totalAmount).toFixed(2)}
                                 </td>
                                 <td className="px-6 py-4 align-top">
                                     <span className={`text-xs px-2 py-1 rounded-full font-bold ${getStatusColor(order.status)}`}>

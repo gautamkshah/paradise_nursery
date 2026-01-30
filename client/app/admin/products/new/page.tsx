@@ -115,7 +115,7 @@ export default function NewProductPage() {
                     <div className="grid grid-cols-2 gap-6">
                         {/* Price */}
                         <div>
-                            <label className="block text-sm font-medium text-stone-700 mb-1">Price ($)</label>
+                            <label className="block text-sm font-medium text-stone-700 mb-1">Price (₹)</label>
                             <input
                                 required
                                 type="number"

@@ -17,6 +17,7 @@
     "next-cloudinary": "^6.17.5",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "sharp": "^0.34.5",
     "zustand": "^5.0.10"
   },
   "devDependencies": {

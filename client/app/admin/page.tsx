@@ -29,7 +29,7 @@ export default function AdminDashboard() {
     const statCards = [
         {
             label: 'Total Revenue',
-            value: `$${(stats.totalRevenue || 0).toLocaleString()}`,
+            value: `₹${(stats.totalRevenue || 0).toLocaleString()}`,
             icon: DollarSign,
             color: 'text-green-600',
             bg: 'bg-green-100'

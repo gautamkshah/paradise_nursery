@@ -269,7 +269,7 @@ const CartDrawer = () => {
                                 <div className="space-y-3 mb-6">
                                     <div className="flex justify-between text-stone-500">
                                         <span>Subtotal</span>
-                                        <span>${totalPrice().toFixed(2)}</span>
+                                        <span>₹{totalPrice().toFixed(2)}</span>
                                     </div>
                                     <div className="flex justify-between text-stone-500">
                                         <span>Shipping</span>
@@ -277,7 +277,7 @@ const CartDrawer = () => {
                                     </div>
                                     <div className="flex justify-between text-xl font-bold text-green-900 pt-3 border-t border-stone-200">
                                         <span>Total</span>
-                                        <span>${totalPrice().toFixed(2)}</span>
+                                        <span>₹{totalPrice().toFixed(2)}</span>
                                     </div>
                                 </div>
 
