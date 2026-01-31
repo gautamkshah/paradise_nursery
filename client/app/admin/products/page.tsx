@@ -42,8 +42,9 @@ export default function AdminProductsPage() {
         try {
             await api.delete(`/products/${id}`);
             setProducts(products.filter(p => p.id !== id));
-        } catch (error) {
-            alert('Failed to delete product');
+        } catch (error: any) {
+            console.error("Delete product error:", error);
+            alert(error.response?.data?.error || 'Failed to delete product. It might be in an existing order.');
         }
     };
 
@@ -82,56 +83,58 @@ export default function AdminProductsPage() {
 
             {/* Table */}
             <div className="bg-white border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
-                <table className="w-full">
-                    <thead className="bg-stone-50 border-b border-stone-100">
-                        <tr>
-                            <th className="px-6 py-4 text-left text-xs font-bold text-stone-500 uppercase tracking-wider">Product</th>
-                            <th className="px-6 py-4 text-left text-xs font-bold text-stone-500 uppercase tracking-wider">Category</th>
-                            <th className="px-6 py-4 text-left text-xs font-bold text-stone-500 uppercase tracking-wider">Price</th>
-                            <th className="px-6 py-4 text-right text-xs font-bold text-stone-500 uppercase tracking-wider">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody className="divide-y divide-stone-100">
-                        {filteredProducts.map((product) => (
-                            <tr key={product.id} className="hover:bg-stone-50/50 transition-colors">
-                                <td className="px-6 py-4">
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-stone-100 rounded-lg relative overflow-hidden flex-shrink-0">
-                                            {product.images?.[0] && (
-                                                <Image src={product.images[0]} alt={product.name} fill className="object-cover" />
-                                            )}
-                                        </div>
-                                        <div>
-                                            <div className="font-semibold text-stone-900">{product.name}</div>
-                                            <div className="text-xs text-stone-400 truncate max-w-[200px]">{product.description}</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td className="px-6 py-4">
-                                    <span className="bg-stone-100 text-stone-600 text-xs px-2 py-1 rounded-full font-medium">
-                                        {product.category?.name || 'Uncategorized'}
-                                    </span>
-                                </td>
-                                <td className="px-6 py-4 text-stone-900 font-medium">
-                                    ₹{product.price}
-                                </td>
-                                <td className="px-6 py-4 text-right">
-                                    <div className="flex items-center justify-end gap-2">
-                                        <button className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
-                                            <Pencil className="w-4 h-4" />
-                                        </button>
-                                        <button
-                                            onClick={() => handleDelete(product.id)}
-                                            className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
-                                        >
-                                            <Trash2 className="w-4 h-4" />
-                                        </button>
-                                    </div>
-                                </td>
+                <div className="overflow-x-auto">
+                    <table className="w-full">
+                        <thead className="bg-stone-50 border-b border-stone-100">
+                            <tr>
+                                <th className="px-6 py-4 text-left text-xs font-bold text-stone-500 uppercase tracking-wider">Product</th>
+                                <th className="px-6 py-4 text-left text-xs font-bold text-stone-500 uppercase tracking-wider">Category</th>
+                                <th className="px-6 py-4 text-left text-xs font-bold text-stone-500 uppercase tracking-wider">Price</th>
+                                <th className="px-6 py-4 text-right text-xs font-bold text-stone-500 uppercase tracking-wider">Actions</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody className="divide-y divide-stone-100">
+                            {filteredProducts.map((product) => (
+                                <tr key={product.id} className="hover:bg-stone-50/50 transition-colors">
+                                    <td className="px-6 py-4">
+                                        <div className="flex items-center gap-4">
+                                            <div className="w-12 h-12 bg-stone-100 rounded-lg relative overflow-hidden flex-shrink-0">
+                                                {product.images?.[0] && (
+                                                    <Image src={product.images[0]} alt={product.name} fill className="object-cover" />
+                                                )}
+                                            </div>
+                                            <div>
+                                                <div className="font-semibold text-stone-900">{product.name}</div>
+                                                <div className="text-xs text-stone-400 truncate max-w-[200px]">{product.description}</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        <span className="bg-stone-100 text-stone-600 text-xs px-2 py-1 rounded-full font-medium">
+                                            {product.category?.name || 'Uncategorized'}
+                                        </span>
+                                    </td>
+                                    <td className="px-6 py-4 text-stone-900 font-medium whitespace-nowrap">
+                                        ₹{product.price}
+                                    </td>
+                                    <td className="px-6 py-4 text-right">
+                                        <div className="flex items-center justify-end gap-2">
+                                            <button className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                                                <Pencil className="w-4 h-4" />
+                                            </button>
+                                            <button
+                                                onClick={() => handleDelete(product.id)}
+                                                className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                                            >
+                                                <Trash2 className="w-4 h-4" />
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
 
                 {filteredProducts.length === 0 && (
                     <div className="p-12 text-center text-stone-500">

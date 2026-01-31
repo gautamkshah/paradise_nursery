@@ -153,7 +153,7 @@ const CartDrawer = () => {
                                                     <div className="flex-1 flex flex-col justify-between">
                                                         <div>
                                                             <h4 className="font-bold text-green-900 text-lg leading-tight">{item.name}</h4>
-                                                            <p className="text-stone-500 text-sm mt-1">${item.price.toFixed(2)}</p>
+                                                            <p className="text-stone-500 text-sm mt-1">₹{item.price.toFixed(2)}</p>
                                                         </div>
 
                                                         <div className="flex items-center justify-between mt-2">
@@ -202,7 +202,7 @@ const CartDrawer = () => {
                                 >
                                     <div className="bg-green-50 p-4 rounded-xl mb-6">
                                         <h3 className="font-bold text-green-900 mb-2">Order Summary</h3>
-                                        <p className="text-sm text-green-700">{items.length} items • <span className="font-bold">${totalPrice().toFixed(2)}</span></p>
+                                        <p className="text-sm text-green-700">{items.length} items • <span className="font-bold">₹{totalPrice().toFixed(2)}</span></p>
                                     </div>
 
                                     <div className="space-y-4">

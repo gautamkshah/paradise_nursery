@@ -74,6 +74,17 @@ export default function AdminCategoriesPage() {
         }
     };
 
+    const handleDelete = async (id: string) => {
+        if (!confirm('Are you sure you want to delete this category?')) return;
+
+        try {
+            await api.delete(`/categories/${id}`);
+            setCategories(categories.filter(c => c.id !== id));
+        } catch (error) {
+            alert('Failed to delete category');
+        }
+    };
+
     if (loading) return <div className="p-8"><Loader2 className="animate-spin text-green-700" /></div>;
 
     return (
@@ -89,50 +100,61 @@ export default function AdminCategoriesPage() {
                     <div className="p-6 border-b border-stone-100">
                         <h2 className="font-bold text-gray-900">All Categories</h2>
                     </div>
-                    <table className="w-full">
-                        <thead className="bg-stone-50 border-b border-stone-100">
-                            <tr>
-                                <th className="px-6 py-4 text-left text-xs font-bold text-stone-500 uppercase tracking-wider">Name</th>
-                                <th className="px-6 py-4 text-left text-xs font-bold text-stone-500 uppercase tracking-wider">Slug</th>
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-stone-100">
-                            {categories.map((category) => (
-                                <tr key={category.id} className="hover:bg-stone-50/50 transition-colors">
-                                    <td className="px-6 py-4 font-medium text-stone-900">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center text-green-600 overflow-hidden">
-                                                {category.image ? (
-                                                    <img src={category.image} alt={category.name} className="w-full h-full object-cover" />
-                                                ) : (
-                                                    <Tag className="w-4 h-4" />
-                                                )}
-                                            </div>
-                                            {category.name}
-                                        </div>
-                                    </td>
-                                    <td className="px-6 py-4 text-stone-500 font-mono text-xs">
-                                        {category.slug}
-                                    </td>
-                                    <td className="px-6 py-4 text-right">
-                                        <button
-                                            onClick={() => handleEdit(category)}
-                                            className="text-stone-400 hover:text-green-600 font-medium text-sm underline transition-colors"
-                                        >
-                                            Edit
-                                        </button>
-                                    </td>
-                                </tr>
-                            ))}
-                            {categories.length === 0 && (
+                    <div className="overflow-x-auto">
+                        <table className="w-full">
+                            <thead className="bg-stone-50 border-b border-stone-100">
                                 <tr>
-                                    <td colSpan={2} className="px-6 py-8 text-center text-stone-500">
-                                        No categories found.
-                                    </td>
+                                    <th className="px-6 py-4 text-left text-xs font-bold text-stone-500 uppercase tracking-wider">Name</th>
+                                    <th className="px-6 py-4 text-left text-xs font-bold text-stone-500 uppercase tracking-wider">Slug</th>
+                                    <th className="px-6 py-4 text-right text-xs font-bold text-stone-500 uppercase tracking-wider">Actions</th>
                                 </tr>
-                            )}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody className="divide-y divide-stone-100">
+                                {categories.map((category) => (
+                                    <tr key={category.id} className="hover:bg-stone-50/50 transition-colors">
+                                        <td className="px-6 py-4 font-medium text-stone-900">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center text-green-600 overflow-hidden">
+                                                    {category.image ? (
+                                                        <img src={category.image} alt={category.name} className="w-full h-full object-cover" />
+                                                    ) : (
+                                                        <Tag className="w-4 h-4" />
+                                                    )}
+                                                </div>
+                                                {category.name}
+                                            </div>
+                                        </td>
+                                        <td className="px-6 py-4 text-stone-500 font-mono text-xs">
+                                            {category.slug}
+                                        </td>
+                                        <td className="px-6 py-4 text-right">
+                                            <div className="flex items-center justify-end gap-3">
+                                                <button
+                                                    onClick={() => handleEdit(category)}
+                                                    className="text-stone-400 hover:text-green-600 font-medium text-sm underline transition-colors"
+                                                >
+                                                    Edit
+                                                </button>
+                                                <button
+                                                    onClick={() => handleDelete(category.id)}
+                                                    className="text-red-400 hover:text-red-600 font-medium text-sm underline transition-colors"
+                                                >
+                                                    Delete
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))}
+                                {categories.length === 0 && (
+                                    <tr>
+                                        <td colSpan={3} className="px-6 py-8 text-center text-stone-500">
+                                            No categories found.
+                                        </td>
+                                    </tr>
+                                )}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 {/* Add Form Section */}

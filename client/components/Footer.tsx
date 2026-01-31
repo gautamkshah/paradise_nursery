@@ -32,14 +32,15 @@ const Footer = () => {
                             <User className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
                             <div>
                                 <p className="text-xs text-green-400 uppercase font-bold tracking-wider mb-1">Owner</p>
-                                <p className="font-medium text-white">Rishu Kumar</p>
+                                <p className="font-medium text-white">Kartik Kumar</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-3">
                             <Phone className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
                             <div>
                                 <p className="text-xs text-green-400 uppercase font-bold tracking-wider mb-1">Phone</p>
-                                <a href="tel:928432889" className="font-medium text-white hover:text-green-400 transition-colors">928432889</a>
+                                <a href="tel:928432889" className="font-medium text-white hover:text-green-400 transition-colors block">928432889</a>
+                                <a href="tel:7822803944" className="font-medium text-white hover:text-green-400 transition-colors block">7822803944</a>
                             </div>
                         </div>
                         <div className="flex items-start gap-3">
@@ -78,6 +79,7 @@ const Footer = () => {
 
             <div className="border-t border-green-900 py-8 text-center text-green-400 text-sm">
                 <p>&copy; {new Date().getFullYear()} Paradise Nursery. All rights reserved.</p>
+                <p className="mt-2 text-green-500">Made with love by Gautam Kumar, contact number 9450645829</p>
             </div>
         </footer>
     );

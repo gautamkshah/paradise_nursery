@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import api from '../../lib/api';
 import { DollarSign, ShoppingBag, Package, AlertTriangle, ArrowUpRight } from 'lucide-react';
 
@@ -91,9 +92,9 @@ export default function AdminDashboard() {
                 <p className="text-stone-500 max-w-sm mt-2">
                     Order management table will be implemented here. For now, check the "Orders" tab in the sidebar.
                 </p>
-                <button className="mt-6 text-green-700 font-semibold hover:underline flex items-center gap-1">
+                <Link href="/admin/orders" className="mt-6 text-green-700 font-semibold hover:underline flex items-center gap-1">
                     View All Orders <ArrowUpRight className="w-4 h-4" />
-                </button>
+                </Link>
             </div>
         </div>
     );

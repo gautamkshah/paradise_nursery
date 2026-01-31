@@ -63,4 +63,21 @@ router.put('/:id', async (req: Request, res: Response) => {
     }
 });
 
+// Delete category
+router.delete('/:id', async (req: Request, res: Response) => {
+    try {
+        const id = req.params.id as string;
+
+        // Prevent deletion if it has products? Maybe. 
+        // For now, let's try basic delete and let Postgres handle foreign key errors if any.
+        await prisma.category.delete({
+            where: { id }
+        });
+        res.status(204).send();
+    } catch (error) {
+        console.error("Delete category error:", error);
+        res.status(500).json({ error: 'Failed to delete category. It may contain products.' });
+    }
+});
+
 export default router;
