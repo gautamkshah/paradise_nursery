@@ -57,7 +57,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
             </div>
             <CldUploadWidget
                 onSuccess={onUpload}
-                uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}
+                uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET || "paradise_uploads"}
             >
                 {({ open }) => {
                     const onClick = () => {
