@@ -103,7 +103,13 @@ router.delete('/:id', async (req: Request, res: Response) => {
             where: { id: req.params.id as string }
         });
         res.status(204).send();
-    } catch (error) {
+    } catch (error: any) {
+        // P2003 is Prisma's error code for foreign key constraint violation
+        if (error.code === 'P2003') {
+            res.status(400).json({ error: 'Cannot delete this product because it is part of existing orders.' });
+            return;
+        }
+        console.error("Delete product error:", error);
         res.status(500).json({ error: 'Failed to delete product' });
     }
 });
